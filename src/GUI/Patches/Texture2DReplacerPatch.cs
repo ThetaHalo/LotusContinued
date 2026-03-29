@@ -20,6 +20,7 @@ public class Texture2DReplacerPatch
 
     public static void CheckForTextures()
     {
+        if (OperatingSystem.IsAndroid()) return; // This causes corrupted textures on Android.
         Resources.FindObjectsOfTypeAll(Il2CppType.Of<Texture2D>())
             .ForEach(obj =>
             {
